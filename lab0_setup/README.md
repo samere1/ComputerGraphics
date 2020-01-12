@@ -8,13 +8,12 @@
 
 ## Modify this section
 
-- How many hours did it take you to complete this lab?
-- Did you collaborate with any other students/TAs/Professors?
+- How many hours did it take you to complete this lab? **2 hours**
+- Did you collaborate with any other students/TAs/Professors? **Professor**
 - Did you use any external resources? (Cite them below)
-  - tbd
-  - tbd
-- (Optional) What was your favorite part of the lab?
-- (Optional) How would you improve the lab?
+  - https://docs.microsoft.com/en-us/cpp/build/vscpp-step-1-create?view=vs-2019
+- (Optional) What was your favorite part of the lab? **Getting my environment set up successfully**
+- (Optional) How would you improve the lab? **Provide written instructions regarding using CMake for the first time (choose existing source code folder, create a new build folder, set the Qt5_DIR, find the .exe in the Debug folder, etc.)**
 
 ## Logistics
 
