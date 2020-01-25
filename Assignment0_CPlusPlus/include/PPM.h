@@ -35,18 +35,20 @@ public:
   // Returns image height
   inline int getHeight() { return m_height; }
 private:
+  // Parses a PPM file and saves its color values
+  void parsePPMFile(std::ifstream &inFile);
   // Use a token from the first part of the PPM file to set the width,
-  // height (and initial pixel data), or max color value.
+  // height (and initial pixel data), or max color value
   void parseMetadata(std::string token, int i, int &colorScale);
   // Use a token from the body of the PPM file to store an individual
-  // color value, or save a pixel if we are at the end of a triple.
+  // color value, or save a pixel if we are at the end of a triple
   void parseColorValues(std::string token, int i, int colorScale,
     int &r, int &g, unsigned int &x, unsigned int &y);
   // Subtracts 50 from an individual color component,
-  // without making it go below 0.
+  // without making it go below 0
   int darkenColor(int colorValue);
   // Calculates the index of the R color component in the
-  // pixel data based on pixel's x and y coordinates.
+  // pixel data based on pixel's x and y coordinates
   int getRIndex(int x, int y);
 
   // Store the raw pixel data here

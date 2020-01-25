@@ -22,6 +22,12 @@ PPM::PPM(std::string fileName) {
     return;
   }
 
+  parsePPMFile(inFile);
+  inFile.close();
+}
+
+// Parses a PPM file and saves its color values
+void PPM::parsePPMFile(std::ifstream &inFile) {
   unsigned int i = 0, x = 0, y = 0;
   int r, g, colorScale = 1;
   std::string line;
@@ -53,11 +59,10 @@ PPM::PPM(std::string fileName) {
       ++i;
     }
   }
-  inFile.close();
 }
 
 // Use a token from the first part of the PPM file to set the width,
-// height (and initial pixel data), or max color value.
+// height (and initial pixel data), or max color value
 void PPM::parseMetadata(std::string token, int i, int &colorScale) {
   int tokenInt = std::stoi(token);
   if (i == 1) {
@@ -73,7 +78,7 @@ void PPM::parseMetadata(std::string token, int i, int &colorScale) {
 }
 
 // Use a token from the body of the PPM file to store an individual
-// color value, or save a pixel if we are at the end of a triple.
+// color value, or save a pixel if we are at the end of a triple
 void PPM::parseColorValues(std::string token, int i, int colorScale,
   int &r, int &g, unsigned int &x, unsigned int &y) {
   int colorIndex = (i - 4) % 3; // minus four to compensate for metadata
@@ -98,7 +103,7 @@ PPM::~PPM() {
   delete[] m_PixelData;
 }
 
-// Saves a PPM Image to a new file.
+// Saves a PPM Image to a new file
 void PPM::savePPM(std::string outputFileName) {
   std::ofstream outFile;
   outFile.open(outputFileName);
@@ -139,7 +144,7 @@ void PPM::darken() {
 }
 
 // Subtracts 50 from an individual color component,
-// without making it go below 0.
+// without making it go below 0
 int PPM::darkenColor(int colorValue) {
   return (colorValue > 50) ? (colorValue - 50) : 0;
 }
@@ -153,7 +158,7 @@ void PPM::setPixel(int x, int y, int r, int g, int b) {
 }
 
 // Calculates the index of the R color component in the
-// pixel data based on pixel's x and y coordinates.
+// pixel data based on pixel's x and y coordinates
 int PPM::getRIndex(int x, int y) {
   return ((y * m_width) + x) * 3;
 }
