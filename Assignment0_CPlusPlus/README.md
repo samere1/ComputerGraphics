@@ -1,13 +1,13 @@
 # Assignment 1 - Modern C++ PPM Library
 
 * Name and partners name (At most 1 partner for this assignment): **Samer Elkheir**
-* How many hours did it take you to complete this assignment? **9 hours**
+* How many hours did it take you to complete this assignment? **10 hours**
 * Did you collaborate or share ideas with any other students/TAs/Professors? **No**
 * Did you use any external resources? 
   * https://stackoverflow.com/questions/11719538/how-to-use-stringstream-to-separate-comma-separated-strings
   * https://my.eng.utah.edu/~cs5610/ppm.html
   * http://www.cplusplus.com/reference/string/string/getline/
-  * http://www.cplusplus.com/reference/sstream/stringstream/str/
+  * http://www.cplusplus.com/reference/string/string/find/
   * http://www.cplusplus.com/reference/string/string/rfind/
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
   
