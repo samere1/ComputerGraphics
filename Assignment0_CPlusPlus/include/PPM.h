@@ -29,25 +29,32 @@ public:
   void setPixel(int x, int y, int r, int g, int b);
 
   // Returns the raw pixel data in an array.
-  inline unsigned char* pixelData() { return m_PixelData; }
+  inline unsigned char *pixelData() { return m_PixelData; }
   // Returns image width
   inline int getWidth() { return m_width; }
   // Returns image height
   inline int getHeight() { return m_height; }
 private:
-  // Store the raw pixel data here
-  // Data is R,G,B format
-  unsigned char* m_PixelData;
-  // Store width and height of image
-  int m_width{ 0 };
-  int m_height{ 0 };
-
-  // Calculates the index of the R color component in the
-  // pixel data based on pixel's x and y coordinates.
-  int getRIndex(int x, int y);
+  // Use a token from the first part of the PPM file to set the width,
+  // height (and initial pixel data), or max color value.
+  void parseMetadata(std::string token, int i, int &colorScale);
+  // Use a token from the body of the PPM file to store an individual
+  // color value, or save a pixel if we are at the end of a triple.
+  void parseColorValues(std::string token, int i, int colorScale,
+    int &r, int &g, unsigned int &x, unsigned int &y);
   // Subtracts 50 from an individual color component,
   // without making it go below 0.
   int darkenColor(int colorValue);
+  // Calculates the index of the R color component in the
+  // pixel data based on pixel's x and y coordinates.
+  int getRIndex(int x, int y);
+
+  // Store the raw pixel data here
+  // Data is R,G,B format
+  unsigned char *m_PixelData;
+  // Store width and height of image
+  int m_width{ 0 };
+  int m_height{ 0 };
 };
 
 
