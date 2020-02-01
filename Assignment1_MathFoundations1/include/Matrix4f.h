@@ -69,6 +69,10 @@ public:
     return (*reinterpret_cast<const Vector4f *>(n[j]));
   }
 
+  Vector4f getRow(int i) {
+    return Vector4f(n[i][0], n[i][1], n[i][2], n[i][3]);
+  }
+
   // Builds a transformation matrix.
   // TODO: Test against glm_gtx_transform
   Matrix4f MakeRotationX(float t) {
@@ -105,23 +109,23 @@ public:
   }
 };
 
-// Matrix multiplication
-Matrix4f operator *(const Matrix4f &A, const Matrix4f &B) {
-  return Matrix4f(
-    Dot(A[0], B[0]), Dot(A[0], B[1]), Dot(A[0], B[2]), Dot(A[0], B[3]),
-    Dot(A[1], B[0]), Dot(A[1], B[1]), Dot(A[1], B[2]), Dot(A[1], B[3]),
-    Dot(A[2], B[0]), Dot(A[2], B[1]), Dot(A[2], B[2]), Dot(A[2], B[3]),
-    Dot(A[3], B[0]), Dot(A[3], B[1]), Dot(A[3], B[2]), Dot(A[3], B[3])
-  );
-}
-
 // Matrix multiply by a vector
 Vector4f operator *(const Matrix4f &M, const Vector4f &v) {
   return Vector4f(
-    Dot(M[0], v),
-    Dot(M[1], v),
-    Dot(M[2], v),
-    Dot(M[3], v)
+    Dot(Vector4f(M(0, 0), M(0, 1), M(0, 2), M(0, 3)), v),
+    Dot(Vector4f(M(1, 0), M(1, 1), M(1, 2), M(1, 3)), v),
+    Dot(Vector4f(M(2, 0), M(2, 1), M(2, 2), M(2, 3)), v),
+    Dot(Vector4f(M(3, 0), M(3, 1), M(3, 2), M(3, 3)), v)
+  );
+}
+
+// Matrix multiplication
+Matrix4f operator *(const Matrix4f &A, const Matrix4f &B) {
+  return Matrix4f(
+    A * B[0],
+    A * B[1],
+    A * B[2],
+    A * B[3]
   );
 }
 

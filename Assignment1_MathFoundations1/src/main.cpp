@@ -178,6 +178,80 @@ bool unitTest5() {
   return false;
 }
 
+bool unitTest6() {
+  Vector4f a(1, 2, 3, 4);
+  Vector4f b(5, 6, 7, 8);
+  float c = Dot(a, b);
+  return c == 70;
+}
+
+bool unitTest7() {
+  Matrix4f A(
+    1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 1, 2, 3,
+    4, 5, 6, 7
+  );
+  Vector4f b(3, 7, 2, 6);
+  Vector4f c = A * b;
+  Vector4f d = Vector4f(47, 119, 56, 101);
+
+  if (c.x == d.x && c.y == d.y && c.z == d.z && c.w == d.w) {
+    return true;
+  }
+  return false;
+}
+
+bool unitTest8() {
+  Matrix4f A(
+    1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 1, 2, 3,
+    4, 5, 6, 7
+  );
+  Matrix4f B(
+    3, 4, 5, 6,
+    7, 8, 9, 1,
+    2, 3, 4, 5,
+    6, 7, 8, 9
+  );
+  Matrix4f C = A * B;
+
+  glm::mat4 D = glm::mat4(
+    1, 5, 9, 4,
+    2, 6, 1, 5,
+    3, 7, 2, 6,
+    4, 8, 3, 7
+  ) * glm::mat4(
+    3, 7, 2, 6,
+    4, 8, 3, 7,
+    5, 9, 4, 8,
+    6, 1, 5, 9
+  );
+
+  if (
+    C[0][0] == D[0][0] &&
+    C[0][1] == D[1][0] &&
+    C[0][2] == D[2][0] &&
+    C[0][3] == D[3][0] &&
+    C[1][0] == D[0][1] &&
+    C[1][1] == D[1][1] &&
+    C[1][2] == D[2][1] &&
+    C[1][3] == D[3][1] &&
+    C[2][0] == D[0][2] &&
+    C[2][1] == D[1][2] &&
+    C[2][2] == D[2][2] &&
+    C[2][3] == D[3][2] &&
+    C[3][0] == D[0][3] &&
+    C[3][1] == D[1][3] &&
+    C[3][2] == D[2][3] &&
+    C[3][3] == D[3][3]) {
+    return true;
+  }
+
+  return false;
+}
+
 int main() {
   // Run 'unit tests'
   std::cout << "Passed 0: " << unitTest0() << " \n";
@@ -186,6 +260,9 @@ int main() {
   std::cout << "Passed 3: " << unitTest3() << " \n";
   std::cout << "Passed 4: " << unitTest4() << " \n";
   std::cout << "Passed 5: " << unitTest5() << " \n";
+  std::cout << "Passed 6: " << unitTest6() << " \n";
+  std::cout << "Passed 7: " << unitTest7() << " \n";
+  std::cout << "Passed 8: " << unitTest8() << " \n";
 
   return 0;
 }
