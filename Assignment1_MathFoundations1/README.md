@@ -5,13 +5,14 @@
 > A linear algebra framework for graphics
 
 * Name and partners name (At most 1 partner for this assignment): **Samer Elkheir**
-* How many hours did it take you to complete this assignment? **4 hours**
+* How many hours did it take you to complete this assignment? **5 hours**
 * Did you collaborate or share ideas with any other students/TAs/Professors? **No**
 * Did you use any external resources? 
   * http://mathworld.wolfram.com/NormalizedVector.html
   * https://onlinemschool.com/math/library/vector/projection/
   * https://mathinsight.org/matrix_vector_multiplication
   * https://glm.g-truc.net/0.9.9/index.html
+  * https://en.wikipedia.org/wiki/Matrix_multiplication
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
 
 ## Logistics
