@@ -69,10 +69,6 @@ public:
     return (*reinterpret_cast<const Vector4f *>(n[j]));
   }
 
-  Vector4f getRow(int i) {
-    return Vector4f(n[i][0], n[i][1], n[i][2], n[i][3]);
-  }
-
   // Builds a transformation matrix.
   // TODO: Test against glm_gtx_transform
   Matrix4f MakeRotationX(float t) {
