@@ -194,7 +194,12 @@ bool unitTest7() {
   );
   Vector4f b(3, 7, 2, 6);
   Vector4f c = A * b;
-  Vector4f d = Vector4f(47, 119, 56, 101);
+  glm::vec4 d = glm::mat4(
+    1, 5, 9, 4,
+    2, 6, 1, 5,
+    3, 7, 2, 6,
+    4, 8, 3, 7
+  ) * glm::vec4(3, 7, 2, 6);
 
   if (c.x == d.x && c.y == d.y && c.z == d.z && c.w == d.w) {
     return true;

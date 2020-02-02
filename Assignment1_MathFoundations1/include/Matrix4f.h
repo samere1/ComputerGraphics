@@ -12,7 +12,7 @@
 // Matrix 4f represents 4x4 matrices in Math
 struct Matrix4f {
 private:
-  float n[4][4];  // Store each value of the matrix
+  float n[4][4]; // Store each value of the matrix
 
 public:
   Matrix4f() = default;
@@ -108,10 +108,10 @@ public:
 // Matrix multiply by a vector
 Vector4f operator *(const Matrix4f &M, const Vector4f &v) {
   return Vector4f(
-    Dot(Vector4f(M(0, 0), M(0, 1), M(0, 2), M(0, 3)), v),
-    Dot(Vector4f(M(1, 0), M(1, 1), M(1, 2), M(1, 3)), v),
-    Dot(Vector4f(M(2, 0), M(2, 1), M(2, 2), M(2, 3)), v),
-    Dot(Vector4f(M(3, 0), M(3, 1), M(3, 2), M(3, 3)), v)
+    (M(0, 0) * v[0]) + (M(0, 1) * v[1]) + (M(0, 2) * v[2]) + (M(0, 3) * v[3]),
+    (M(1, 0) * v[0]) + (M(1, 1) * v[1]) + (M(1, 2) * v[2]) + (M(1, 3) * v[3]),
+    (M(2, 0) * v[0]) + (M(2, 1) * v[1]) + (M(2, 2) * v[2]) + (M(2, 3) * v[3]),
+    (M(3, 0) * v[0]) + (M(3, 1) * v[1]) + (M(3, 2) * v[2]) + (M(3, 3) * v[3])
   );
 }
 
