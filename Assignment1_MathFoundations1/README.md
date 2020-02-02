@@ -5,7 +5,7 @@
 > A linear algebra framework for graphics
 
 * Name and partners name (At most 1 partner for this assignment): **Samer Elkheir**
-* How many hours did it take you to complete this assignment? **5 hours**
+* How many hours did it take you to complete this assignment? **6 hours**
 * Did you collaborate or share ideas with any other students/TAs/Professors? **No**
 * Did you use any external resources? 
   * http://mathworld.wolfram.com/NormalizedVector.html
