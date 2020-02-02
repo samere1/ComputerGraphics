@@ -171,6 +171,7 @@ bool unitTest8() {
 
   // Transposing B because B[x][y] == A(x, y) == A[y][x],
   // and we're using A[x][y] == B[x][y] for comparing matrices.
+  // (A[x] gets column x, B[x] gets row x)
   return areMatricesEqual(A, glm::transpose(B));
 }
 
