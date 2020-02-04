@@ -70,27 +70,26 @@ public:
   }
 
   // Builds a transformation matrix.
-  // TODO: Test against glm_gtx_transform
   Matrix4f MakeRotationX(float t) {
     return Matrix4f(
       1, 0, 0, 0,
-      0, cos(t), -sin(t), 0,
-      0, sin(t), cos(t), 0,
+      0, cos(t), sin(t), 0,
+      0, -sin(t), cos(t), 0,
       0, 0, 0, 1
     );
   }
   Matrix4f MakeRotationY(float t) {
     return Matrix4f(
-      cos(t), 0, sin(t), 0,
+      cos(t), 0, -sin(t), 0,
       0, 1, 0, 0,
-      -sin(t), 0, cos(t), 0,
+      sin(t), 0, cos(t), 0,
       0, 0, 0, 1
     );
   }
   Matrix4f MakeRotationZ(float t) {
     return Matrix4f(
-      cos(t), -sin(t), 0, 0,
-      sin(t), cos(t), 0, 0,
+      cos(t), sin(t), 0, 0,
+      -sin(t), cos(t), 0, 0,
       0, 0, 1, 0,
       0, 0, 0, 1
     );
