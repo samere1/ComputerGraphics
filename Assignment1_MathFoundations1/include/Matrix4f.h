@@ -104,7 +104,7 @@ public:
   }
 };
 
-// Matrix multiply by a vector
+// Matrix multiplied by a vector
 Vector4f operator *(const Matrix4f &M, const Vector4f &v) {
   return Vector4f(
     (M(0, 0) * v.x) + (M(0, 1) * v.y) + (M(0, 2) * v.z) + (M(0, 3) * v.w),
@@ -114,7 +114,7 @@ Vector4f operator *(const Matrix4f &M, const Vector4f &v) {
   );
 }
 
-// Matrix multiplication
+// Matrix multiplication (multiply A by B)
 Matrix4f operator *(const Matrix4f &A, const Matrix4f &B) {
   return Matrix4f(
     A * B[0],
