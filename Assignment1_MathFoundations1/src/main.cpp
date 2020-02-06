@@ -214,19 +214,18 @@ bool unitTest11() {
   );
 
   glm::mat4 B = glm::mat4(
-    1, 5, 9, 4,
-    2, 6, 1, 5,
-    3, 7, 2, 6,
-    4, 8, 3, 7
+    3, 4, 5, 6,
+    7, 8, 9, 1,
+    2, 3, 4, 5,
+    6, 7, 8, 9
   ) * glm::mat4(
-    3, 7, 2, 6,
-    4, 8, 3, 7,
-    5, 9, 4, 8,
-    6, 1, 5, 9
+    1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 1, 2, 3,
+    4, 5, 6, 7
   );
-
-  // Transposing B because glm stores/accesses data differently.
-  return areMatricesEqual(A, glm::transpose(B));
+  
+  return areMatricesEqual(A, B);
 }
 
 bool unitTest12() {
