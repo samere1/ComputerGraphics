@@ -12,7 +12,7 @@
 
 - How many hours did it take you to complete this lab? **0.5 hours**
 - Did you collaborate with any other students/TAs/Professors? **No**
-- Did you use any external resources? (Cite them below) **N/A**
+- Did you use any external resources? (Cite them below) **No**
 - (Optional) What was your favorite part of the lab?
 - (Optional) How would you improve the lab?
 

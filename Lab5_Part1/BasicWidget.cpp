@@ -171,7 +171,7 @@ void BasicWidget::initializeGL()
   shaderProgram_.enableAttributeArray(0);
   shaderProgram_.setAttributeBuffer(0, GL_FLOAT, 0, 3);
 
-  // Releae the vao THEN the vbo
+  // Release the vao THEN the vbo
   vao_.release();
   vbo_.release();
   shaderProgram_.release();
