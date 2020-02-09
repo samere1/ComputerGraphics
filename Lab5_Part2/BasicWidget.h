@@ -4,9 +4,7 @@
 #include <QtWidgets>
 #include <QtOpenGL>
 
-// TODO:  This macro should work when both true AND false
 #define USE_QT_OPENGL true
-// ENDTODO
 
 /**
  * This is just a basic OpenGL widget that will allow a change of background color.
@@ -29,6 +27,8 @@ protected:
   void initializeGL() override;
   void resizeGL(int w, int h) override;
   void paintGL() override;
+
+  int numVertices = 3;
 
 #if USE_QT_OPENGL
   QOpenGLBuffer vbo_;
