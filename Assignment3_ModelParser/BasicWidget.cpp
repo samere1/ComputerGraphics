@@ -197,7 +197,7 @@ void BasicWidget::paintGL()
 
   // Update buffers and get number of vertices to draw
   int numVertices = setBuffers();
-  glDrawElements(GL_TRIANGLES, numVertices * 3, GL_UNSIGNED_INT, 0);
+  glDrawElements(GL_TRIANGLES, numVertices, GL_UNSIGNED_INT, 0);
 
   vao_.release();
   shaderProgram_.release();
