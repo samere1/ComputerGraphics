@@ -3,16 +3,20 @@
 (The picture shows an example of success for this assignment)
 <img align="right" src="./media/house.jpg" width="400px" alt="picture">
 
-
-*TODO*: Please edit the following information in your assignment
-
-* Name and partners name(At most 1 partner for this Assignment): 
-* How many hours did it take you to complete this Assignment? 
-* Did you collaborate or share ideas with any other students/TAs/Professors? 
+* Name and partners name (At most 1 partner for this Assignment): **Samer Elkheir**
+* How many hours did it take you to complete this Assignment? **13 hours**
+* Did you collaborate or share ideas with any other students/TAs/Professors? **No**
 * Did you use any external resources? 
-  * (tbd if any)
-  * (tbd if any)
-  * (tbd if any)
+  * http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/
+  * https://community.khronos.org/t/seethrough-models-problem/61771/2
+  * https://stackoverflow.com/questions/13054730/qfiledialog-is-crashing-my-application?rq=1
+  * https://doc.qt.io/qt-5/qvector.html
+  * https://doc.qt.io/qt-5/qimage.html
+  * https://doc.qt.io/qt-5/qmap.html
+  * https://doc.qt.io/qt-5/qfiledialog.html
+  * https://doc.qt.io/qt-5/qdir.html
+  * https://doc.qt.io/qt-5/qfileinfo.html
+  * https://doc.qt.io/qt-5/qopengltexture.html
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
   
 ## Description
