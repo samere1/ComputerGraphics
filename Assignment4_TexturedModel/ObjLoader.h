@@ -26,7 +26,7 @@ private:
   QVector<QVector2D> objTextures;
   QVector<QVector3D> objNormals;
 
-  // Store unique combinations of vertices and their indices
+  // Store unique combinations of vertices and their corresponding indices
   QVector<QVector3D> positions;
   QVector<QVector2D> textures;
   QVector<QVector3D> normals;

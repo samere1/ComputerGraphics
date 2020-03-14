@@ -22,6 +22,5 @@ signals:
 public slots:
 
 private:
-  // File path for the currently displayed obj file
-  std::string objFilePath_;
+
 };

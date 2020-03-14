@@ -69,7 +69,7 @@ void ObjLoader::parseFaces(QMap<QVector<float>, unsigned int> verticesToIndices,
     // Create the vertex
     QVector<float> face;
     QVector3D position = objPositions[vertexIndices[0].toUInt() - 1];
-    QVector2D texture = vertexIndices[1] != "" ? objTextures[vertexIndices[1].toUInt() - 1] : QVector2D(0, 0);
+    QVector2D texture = vertexIndices[1] != "" ? objTextures[vertexIndices[1].toUInt() - 1] : QVector2D(0, 0); // Texture coord optional
     QVector3D normal = objNormals[vertexIndices[2].toUInt() - 1];
     face << position.x() << position.y() << position.z();
     face << texture.x() << texture.y();
@@ -99,6 +99,7 @@ void ObjLoader::parseMtlFile(std::string mtlFileName) {
     exit(1);
   }
 
+  // Parse mtl file for texture file path on the "map_Kd" line
   std::string mtlLine;
   while (getline(inFile, mtlLine)) {
     QStringList tokens = QString::fromStdString(mtlLine).split(' ');

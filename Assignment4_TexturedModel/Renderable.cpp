@@ -53,6 +53,7 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
 
   // Set our model matrix to identity
   modelMatrix_.setToIdentity();
+
   // Load the texture if there is one
   if (textureFile != "") {
     texture_.setData(QImage(textureFile).mirrored(true, true));
@@ -61,7 +62,7 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
   // Set our number of indices
   numIndices_ = indexes.size();
 
-  // Num verts (used to size our vbo)
+  // Calculate number of verts to size our vbo
   int numVerts = positions.size();
   vertexSize_ = 3 + 2;  // Position + texCoord
   int numVBOEntries = numVerts * vertexSize_;

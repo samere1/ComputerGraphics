@@ -67,6 +67,7 @@ void BasicWidget::resizeGL(int w, int h)
       for (auto msg : messages) { qDebug() << msg; } });
     logger_.startLogging();
   }
+  glViewport(0, 0, w, h);
   view_.setToIdentity();
   view_.lookAt(
     QVector3D(0.0f, 0.0f, 4.0f),
