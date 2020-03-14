@@ -4,7 +4,7 @@
 <img align="right" src="./media/house.jpg" width="400px" alt="picture">
 
 * Name and partners name (At most 1 partner for this Assignment): **Samer Elkheir**
-* How many hours did it take you to complete this Assignment? **13 hours**
+* How many hours did it take you to complete this Assignment? **13 hours (half of which was debugging :smiley:)**
 * Did you collaborate or share ideas with any other students/TAs/Professors? **No**
 * Did you use any external resources? 
   * http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/
