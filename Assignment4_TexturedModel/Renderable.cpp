@@ -56,7 +56,7 @@ void Renderable::init(const QVector<QVector3D> &positions, const QVector<QVector
 
   // Load the texture if there is one
   if (textureFile != "") {
-    texture_.setData(QImage(textureFile).mirrored(true, true));
+    texture_.setData(QImage(textureFile).mirrored(true));
   }
 
   // Set our number of indices
