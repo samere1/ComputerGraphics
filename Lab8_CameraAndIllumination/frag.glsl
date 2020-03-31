@@ -29,12 +29,41 @@ struct PointLight {
 // Maintain our uniforms.
 uniform sampler2D tex;              // our primary texture
 uniform mat4 view;                  // we need the view matrix for highlights
-uniform PointLight pointLights[1];  // Our lights
+uniform PointLight pointLights[4];  // Our lights
+
+vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
+  // Compute ambient light
+  vec3 ambient = light.ambientIntensity * light.color;
+  
+  // Compute diffuse light
+  vec3 lightDir = normalize(light.position - fragPos);
+  float diffImpact = max(dot(normal, lightDir), 0.0);
+  vec3 diffuseLight = diffImpact * light.color;
+  
+  // Compute specular lighting
+  vec3 reflectDir = reflect(-lightDir, norm);
+  
+  float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+  vec3 specular = light.specularIntensity * spec * light.color;
+  
+  return (ambient + diffuseLight + specular);
+}
 
 void main() {
-  // Set our output fragment color to whatever we pull from our input texture (Note, change 'tex' to whatever the sampler is named)
-  fragColor = texture(tex, texCoords);
-
-  // TODO:  Implement some form of lighting.
+  // Store final texture color
+  vec3 diffuseColor = texture(tex, texCoords).rgb;
   
+  // Properties
+  vec3 normal = normalize(norm);
+  vec3 viewPos = vec3(0.0, 0.0, 0.0);
+  vec3 viewDir = normalize(viewPos - fragPos);
+  
+  // Calculate point lights
+  vec3 lighting;
+  for (int i = 0; i < 4; ++i) {
+	  lighting += CalcPointLight(pointLights[i], norm, fragPos, viewDir);
+  }
+  
+  // Final color
+  fragColor = vec4(diffuseColor * lighting, 1.0);
 }
