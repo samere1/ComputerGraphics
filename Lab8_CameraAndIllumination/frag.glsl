@@ -66,7 +66,7 @@ void main() {
   // Calculate point lights
   vec3 lighting;
   for (int i = 0; i < NUM_POINT_LIGHTS; ++i) {
-	  lighting += CalcPointLight(pointLights[i], norm, fragPos, viewDir);
+	  lighting += CalcPointLight(pointLights[i], normal, fragPos, viewDir);
   }
   
   // Final color
