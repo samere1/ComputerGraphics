@@ -40,7 +40,7 @@ ObjLoader::ObjLoader(std::string fileName) {
     }
     // Parse faces to get vertices
     else if (tokens[0] == "f") {
-      parseFaces(verticesToIndices, tokens);
+      parseFace(verticesToIndices, tokens);
     }
     else if (tokens[0] == "mtllib") {
       parseMtlFile(QFileInfo(QString::fromStdString(fileName)).absoluteDir().absoluteFilePath(tokens[1]).toStdString());
@@ -60,23 +60,23 @@ ObjLoader::~ObjLoader() {
   indices.clear();
 }
 
-// Parse the faces to get unique vertices
-void ObjLoader::parseFaces(QMap<QVector<float>, unsigned int> verticesToIndices, QStringList faces) {
-  for (int i = 1; i < faces.size(); i++) {
-    QString faceString = faces.at(i);
-    QStringList vertexIndices = faceString.split('/');
+// Parse the face to get unique vertices
+void ObjLoader::parseFace(QMap<QVector<float>, unsigned int> verticesToIndices, QStringList vertices) {
+  for (int i = 1; i < vertices.size(); i++) {
+    QString vertexString = vertices.at(i);
+    QStringList vertexIndices = vertexString.split('/');
 
     // Create the vertex
-    QVector<float> face;
+    QVector<float> vertex;
     QVector3D position = objPositions[vertexIndices[0].toUInt() - 1];
     QVector2D texture = vertexIndices[1] != "" ? objTextures[vertexIndices[1].toUInt() - 1] : QVector2D(0, 0); // Texture coord optional
     QVector3D normal = objNormals[vertexIndices[2].toUInt() - 1];
-    face << position.x() << position.y() << position.z();
-    face << texture.x() << texture.y();
-    face << normal.x() << normal.y() << normal.z();
+    vertex << position.x() << position.y() << position.z();
+    vertex << texture.x() << texture.y();
+    vertex << normal.x() << normal.y() << normal.z();
 
     // If the vertex already exists, use the existing index
-    unsigned int index = verticesToIndices.value(face, -1);
+    unsigned int index = verticesToIndices.value(vertex, -1);
     // If the vertex is new, add it to the arrays and the map with a new index
     if (index == -1) {
       positions.append(position);
@@ -84,7 +84,7 @@ void ObjLoader::parseFaces(QMap<QVector<float>, unsigned int> verticesToIndices,
       normals.append(normal);
       
       index = positions.size() - 1;
-      verticesToIndices.insert(face, index);
+      verticesToIndices.insert(vertex, index);
     }
     indices.append(index);
   }
