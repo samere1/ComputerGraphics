@@ -63,8 +63,7 @@ ObjLoader::~ObjLoader() {
 // Parse the face to get unique vertices
 void ObjLoader::parseFace(QMap<QVector<float>, unsigned int> verticesToIndices, QStringList vertices) {
   for (int i = 1; i < vertices.size(); i++) {
-    QString vertexString = vertices.at(i);
-    QStringList vertexIndices = vertexString.split('/');
+    QStringList vertexIndices = vertices.at(i).split('/');
 
     // Create the vertex
     QVector<float> vertex;

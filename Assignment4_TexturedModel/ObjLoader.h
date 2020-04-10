@@ -36,7 +36,7 @@ private:
   QString textureFile;
 
   // Parse the face to get unique vertices
-  void parseFace(QMap<QVector<float>, unsigned int> verticesToIndices, QStringList faces);
+  void parseFace(QMap<QVector<float>, unsigned int> verticesToIndices, QStringList vertices);
 
   // Parses the obj's mtl file for the texture file
   void parseMtlFile(std::string mtlFileName);
