@@ -66,10 +66,9 @@ void BasicWidget::mouseMoveEvent(QMouseEvent* mouseEvent)
   QPoint delta = mouseEvent->pos() - lastMouseLoc_;
   lastMouseLoc_ = mouseEvent->pos();
   if (mouseAction_ == Rotate) {
-    // TODO:  Implement rotating the camera
+    
   } else if (mouseAction_ == Zoom) {
-    // TODO:  Implement zoom by moving the camera
-    // Zooming is moving along the gaze direction by some amount.
+    
   } 
   update();
 }
@@ -132,13 +131,12 @@ void BasicWidget::setupViewQuad()
 // We need to set up different shaders for our post-processing step. 
 void BasicWidget::setupShaders()
 {
-    // TODO:  You may need to change these paths based on how/where you choose to build
-    QString vertexFilename = "../../FBOVert.glsl";
+    QString vertexFilename = "./FBOVert.glsl";
     bool ok = shader_.addShaderFromSourceFile(QOpenGLShader::Vertex, vertexFilename);
     if (!ok) {
         qDebug() << shader_.log();
     }
-    QString fragmentFilename = "../../FBOFrag.glsl";
+    QString fragmentFilename = "./FBOFrag.glsl";
     ok = shader_.addShaderFromSourceFile(QOpenGLShader::Fragment, fragmentFilename);
     if (!ok) {
         qDebug() << shader_.log();
@@ -179,8 +177,7 @@ void BasicWidget::initializeGL()
   setupShaders();
 
   qDebug() << QDir::currentPath();
-  // TODO:  You may have to change these paths.
-  QString terrainTex = "../../colormap.ppm";
+  QString terrainTex = "./colormap.ppm";
 
   TerrainQuad* terrain = new TerrainQuad();
   terrain->init(terrainTex);
@@ -237,7 +234,6 @@ void BasicWidget::paintGL()
   // When we draw, we are now rendering into our FBO
   for (auto renderable : renderables_) {
       renderable->update(msSinceRestart);
-      // TODO:  Understand that the camera is now governing the view and projection matrices
       renderable->draw(world_, camera_.getViewMatrix(), camera_.getProjectionMatrix());
   }
 
@@ -254,7 +250,7 @@ void BasicWidget::paintGL()
   // At this point, our FBO has our rendered scene in it.
   // We now want to do the second render pass to paste it onto a quad as if it were a
   // normal texture.
-  // TODO -- Note, Qt doesn't expose the textures an QOpenGLFrameBufferObject stores directly
+  // Note: Qt doesn't expose the textures an QOpenGLFrameBufferObject stores directly
   // instead, it provides a method to get the textureID that it used to render to.
   // We now want to bind it and use it to render our screen-sized quad
   GLuint fboTextureId = fbo.texture();
