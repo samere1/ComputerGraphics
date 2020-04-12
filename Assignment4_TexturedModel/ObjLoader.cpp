@@ -42,6 +42,7 @@ ObjLoader::ObjLoader(std::string fileName) {
     else if (tokens[0] == "f") {
       parseFace(verticesToIndices, tokens);
     }
+    // Parse mtl file to get texture map path
     else if (tokens[0] == "mtllib") {
       parseMtlFile(QFileInfo(QString::fromStdString(fileName)).absoluteDir().absoluteFilePath(tokens[1]).toStdString());
     }
