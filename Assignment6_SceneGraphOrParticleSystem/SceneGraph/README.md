@@ -1,6 +1,7 @@
 # Assignment 6 - Scenegraph
 
 ![Alt text](./media/working.png "Working Solar System")
+![Alt text](./media/solar_system.gif "Working Solar System")
 
 * Name and partners name(At most 1 partner for this Assignment): **Samer Elkheir**
 * How many hours did it take you to complete this Assignment?  **9 hours**
