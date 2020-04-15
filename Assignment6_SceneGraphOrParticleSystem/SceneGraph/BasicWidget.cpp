@@ -90,7 +90,7 @@ void BasicWidget::initializeGL()
 
   // Planet rotates around the sun
   SceneNode *planetOrbitNode = createOrbitNode(1.0f, sunNode);
-  SceneNode *planetNode = createSphereNode(sphere, planetTexture, planetOrbitNode, 2.5f, 12.0f, 0.7f);
+  SceneNode *planetNode = createSphereNode(sphere, planetTexture, planetOrbitNode, 2.5f, 12.0f, 0.6f);
   // 3 moons rotate around the planet
   SceneNode *planetMoonOrbitNode1 = createOrbitNode(10.0f, planetNode);
   createSphereNode(sphere, moonTexture, planetMoonOrbitNode1, 40.0f, 1.5f, 0.2f);
@@ -116,7 +116,7 @@ void BasicWidget::resizeGL(int w, int h)
   glViewport(0, 0, w, h);
   view_.setToIdentity();
   view_.lookAt(
-    QVector3D(0.0f, 2.0f, 16.0f),
+    QVector3D(0.0f, 2.0f, 15.0f),
     QVector3D(0.0f, 0.0f, 0.0f),
     QVector3D(0.0f, 1.0f, 0.0f));
   projection_.setToIdentity();
