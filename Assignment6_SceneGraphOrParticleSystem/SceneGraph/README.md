@@ -99,7 +99,8 @@ the final position of an object in world space? Note: There is a handy
 [tutorial](./media/SceneGraphs.pdf) in the repository including more
 information on scenegraphs which may help you answer.
   
-**Answer here**: *Your answer here*
+**Answer here**:
+It is better to store both the local and world transforms for each object because we can determine the world transform matrix of any object with one multiplication: the local transform times the parent's world transform. We can do this because we recursively calculate and store the world transform for each object as we descend the graph (starting from the root). If we did not store the world transform, then **for each object**, we would have to traverse the entire tree down to the object's node to calculate its world transform (depth-first traversal). If the scene graph's height is small, this is not that big of a deal, but for a larger graph, there would be a lot of repetitive matrix multiplication.
   
 ## How to run your program
 
