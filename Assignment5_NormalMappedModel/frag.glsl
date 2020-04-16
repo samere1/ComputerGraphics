@@ -63,37 +63,3 @@ void main() {
   // Final color
   fragColor = vec4(diffuseColor * lighting, 1.0);
 }
-
-/*
-void main() {
-  // Obtain normal from normal map in range [0, 1]
-  vec3 normal = texture(normalMap, texCoords).rgb;
-  // Transform normal vector to range [-1, 1]
-  normal = normalize(normal * 2.0 - 1.0); // Normal is in tangent space
-  
-  // Get diffuse color
-  //vec3 diffuseColor = textureExists ? texture(diffuseMap, texCoords).rgb : vec3(1.0, 1.0, 1.0);  
-  vec3 diffuseColor = texture(diffuseMap, texCoords).rgb;
-  
-  vec3 tangentFragPos = TBN * fragPos;
-  
-  // Compute ambient light
-  vec3 ambient = 0.1 * diffuseColor;
-  
-  // Compute diffuse light
-  vec3 lightDir = normalize((TBN * pointLight.position) - tangentFragPos);
-  float diffImpact = max(dot(lightDir, normal), 0.0);
-  vec3 diffuseLight = diffImpact * diffuseColor;
-  
-  // Compute specular lighting
-  vec3 viewPos = vec3(0.0, 0.0, 0.0); // TODO change?
-  vec3 viewDir = normalize((TBN * viewPos) - tangentFragPos); // TODO TBN * ?
-  vec3 reflectDir = reflect(-lightDir, normal);
-  vec3 halfwayDir = normalize(lightDir + viewDir);
-  float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
-  vec3 specular = vec3(0.2) * spec;
-
-  // Final color
-  fragColor = vec4(ambient + diffuseLight + specular, 1.0);
-}
-*/

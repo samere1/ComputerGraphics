@@ -17,9 +17,9 @@ out mat3 TBN;
 void main()
 {
 	// Our fragment pos for lighting
-    fragPos = vec3(modelMatrix * vec4(position, 1.0));
+	fragPos = vec3(modelMatrix * vec4(position, 1.0));
 	// Map texture coordinates
-    texCoords = textureCoords;
+	texCoords = textureCoords;
 	
 	// Create the TBN matrix
 	mat3 normalMatrix = transpose(inverse(mat3(modelMatrix)));
@@ -32,5 +32,5 @@ void main()
 	TBN = transpose(mat3(T, B, N));
 
 	// Transformed position
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
+	gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
 }
